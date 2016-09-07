@@ -1,0 +1,40 @@
+---
+title: "WCS Beispielgrafiken"
+author: "Jens Hüsers"
+date: "7 September 2016"
+output: html_document
+---
+
+
+```{r setup, echo = FALSE, warning = FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = FALSE, warnings = FALSE, message = F)
+invisible(lapply(X = list("./composite-score-innovation-view.R", "./multiple-indicator-views.R"), source))
+```
+
+# {.tabset .tabset-fade .tabset-pills}
+
+Die Beispielgrafiken basieren auf zufallsgenerierter Daten. Diese Grafiken entsprechen den bestehenden Grafiken des IT-Benchmarkings sind jedoch teilweise leicht abgeändert z.B. Datenpunkte der jeweiligen teilnehmenden Krankenhäusern in die Performance Bar mit aufgenommen. 
+
+Die Grafiken sind bislang in [ggplot2](http://ggplot2.org/) erstellt worden. Sie können als Grafikdateien (png, tiff, pdf) exportiert und in die Benchmark Broschüren eingepflegt werden. Für den Webeinsatz sind die Grafiken nur eingeschränkt geeignet. Hier sollten wir auf dynamisch generierte Grafiktypen setzten, welche sich flexibel einer Webumgebung anpassen. Hier können wir auf [d3](www.d3js.org) oder auf das R-Paket [GGvis](http://ggvis.rstudio.com/) setzten welches dynamische Grafiken mithilfe von Java Script erstellt. 
+
+## WCS-Perfomance Bar
+```{r cars, fig.height= 3}
+performance_bar
+```
+
+## Multiple Indicator View
+
+
+
+```{r pressure, echo=FALSE}
+p
+```
+
+# Interaktivität
+
+Neben der fehlenden Webkompatibilität sind die Grafiken nicht interaktiv - GGvis und d3 können hier Abhilfe schaffen.
+
+Im folgenden Beispiel findet sich der Bullet Chart aus der [NVD3 Library](www.nvd3.org) welches unserer Performance Bar sehr nahe kommt. Zudem ist sie weboptimiert sowie interaktiv. Wir sollten prüfen, ob dieser für unsere Zwecke geeignet ist
+
+
+<iframe src="http://nvd3.org/livecode/index.html#codemirrorNav" width="900" height="780" style="border: none;"></iframe>
