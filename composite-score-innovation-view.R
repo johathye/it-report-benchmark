@@ -56,4 +56,6 @@ performance_bar <- ggplot(data = rogers, mapping = aes(x = 1.5, y = value, fill 
     ggtitle("Composite-Score-Innovation-View.tiff") +
     theme(title = element_text(face = "bold", size = 18))
 
+performance_bar
+
 # ggsave("composite-score-innovation-view.tiff", height = 4, width = 10)
